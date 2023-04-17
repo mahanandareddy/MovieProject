@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}"/>
+    <title>Movies List Page</title>
+</head>
+<body>
+     <h1>Movies List Details..!</h1>
+     <hr/>
+     {% if form1 %}
+          <table>
+              <thead>
+                   <tr>
+                       <th>Release-Date</th>
+                       <th>Movie</th>
+                       <th>Actor</th>
+                       <th>Actress</th>
+                       <th>Rating</th>
+                   </tr>
+              </thead>
+              <tbody>
+                    {% for m in form1 %}
+                    <tr>
+                        <td>{{m.release_date }}</td>
+                        <td>{{m.movie }}</td>
+                        <td>{{m.actor }}</td>
+                        <td>{{m.actress }}</td>
+                        <td>{{m.rating }}</td>
+                    </tr>
+                   {% endfor %}
+              </tbody>
+          </table>
+                 <a style="align-content: center" href="/">home</a>
+     {% else %}
+         <h2>OOPs.. No Movies Found...!</h2>
+     {% endif %}
+</body>
+</html>
